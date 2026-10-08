@@ -9,6 +9,18 @@ A limit order book and matching engine in C++20, with simulated market makers, i
 - **Slippage:** every execution reports its average price against the mid and the best price at arrival, in ticks, basis points and dollars. The GUI shows a live estimate before you send.
 - **Multithreading:** the market runs on its own thread so it isn't tied to the frame rate, and a benchmark runs thousands of independent simulations across all CPU cores (6.1× faster on 10 cores).
 
+## Why I built this
+
+I wanted to understand how a stock exchange actually works under the hood: how buy and sell orders get matched, why big orders get worse prices, and how market makers earn money while taking risk. Building it myself was the best way to learn, and it gave me a reason to push my C++ further than class work does.
+
+What it shows:
+
+- **Writing fast C++:** a matching engine that handles millions of orders per second
+- **Picking the right data structures** and explaining why, with the cost of each operation
+- **Multithreading done carefully:** knowing what should run in parallel, and what has to stay in order
+- **Testing and measuring:** unit tests for the tricky cases, plus real benchmark numbers instead of guesses
+- **A finished product:** a live interface anyone can play with, not just code
+
 ## Build and run
 
 Needs CMake 3.20+, a C++20 compiler and [raylib](https://www.raylib.com) for the GUI.
